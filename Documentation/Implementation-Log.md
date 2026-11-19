@@ -93,3 +93,35 @@ Assigned employees to their corresponding departmental security groups.
 Configure department-specific shared resources and enforce access through security groups, following the principle of least privilege.
 
 *Note: Authentication, authorisation and security-control testing have not yet been completed.*
+
+## Departmental Resource and Permission Management
+
+**Date:** 19 November 2026
+
+### Departmental Folder Structure
+Created four departmental folders on the domain controller:
+- IT
+- HR
+- Finance
+- InformationSecurity
+
+### NTFS Permission Configuration
+- Disabled inherited permissions on departmental folders.
+- Granted Modify permissions to the corresponding departmental security groups.
+- Granted Full Control to Domain Admins, local Administrators, and SYSTEM.
+- Verified the configured NTFS permissions using `icacls`.
+
+### SMB Share Configuration
+Created four network shares:
+- `\\IAM-DC01\IT`
+- `\\IAM-DC01\HR`
+- `\\IAM-DC01\Finance`
+- `\\IAM-DC01\InformationSecurity`
+
+Each departmental group was granted Change access to its corresponding share. Domain Admins and local Administrators were granted Full access.
+
+### Verification Status
+- NTFS permissions: Verified
+- SMB share permissions: Verified
+- SMB share paths: Verified
+- Actual employee network access restrictions: Pending domain-joined client testing

@@ -31,10 +31,11 @@ The simulated organisation contains four departments:
 - Finance
 - Information Security
 
-Departmental organisational units and security groups are configured in Active Directory.
+Departmental organisational units and Global Security Groups are configured in Active Directory.
 
 ## Implemented Features
 
+### Active Directory and Identity Management
 - Windows Server 2025 domain controller deployment
 - Active Directory Domain Services installation and configuration
 - DNS Server deployment
@@ -43,6 +44,15 @@ Departmental organisational units and security groups are configured in Active D
 - Fictional employee account provisioning
 - Departmental Global Security Groups
 - Employee-to-group membership assignment
+
+### Departmental Resource and Access Management
+- Created departmental folders for IT, HR, Finance, and Information Security
+- Configured NTFS permissions using department-based security groups
+- Disabled inherited permissions on departmental folders
+- Created four SMB network shares
+- Configured department-specific Change permissions at the share level
+- Granted administrative Full Control permissions
+- Verified NTFS permissions, SMB share permissions, and share paths
 
 ## Technology Stack
 
@@ -70,7 +80,8 @@ Enterprise-IAM-Lab/
 │   │   ├── 02-Active-Directory-Deployment/
 │   │   ├── 03-Organizational-Structure/
 │   │   ├── 04-Identity-Provisioning/
-│   │   └── 05-Group-Based-Access-Management/
+│   │   ├── 05-Group-Based-Access-Management/
+│   │   └── 06-Departmental-Resource-and-Permission-Management/
 │   │
 │   └── Test-Results/
 │
@@ -84,11 +95,9 @@ Enterprise-IAM-Lab/
 
 The following components are yet to be implemented and validated:
 
-- Department-specific shared folders
-- NTFS and network share permissions
-- Role-Based Access Control (RBAC) validation
-- Least-privilege access testing
 - Domain client authentication
+- Employee-level access restriction testing
+- Role-Based Access Control (RBAC) validation
 - Group Policy security configuration
 - Employee onboarding, transfer, and offboarding
 - Account auditing and access reviews

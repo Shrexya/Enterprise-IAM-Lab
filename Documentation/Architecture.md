@@ -141,3 +141,23 @@ No production systems or real employee accounts are accessed.
 - Final security validation and reporting
 
 This document will be updated as additional components are implemented and tested.
+
+## Departmental File Resources
+
+The domain controller hosts four departmental SMB shares:
+
+| Department | Network Share | AD Security Group |
+|---|---|---|
+| IT | `\\IAM-DC01\IT` | GG-IT |
+| HR | `\\IAM-DC01\HR` | GG-HR |
+| Finance | `\\IAM-DC01\Finance` | GG-Finance |
+| Information Security | `\\IAM-DC01\InformationSecurity` | GG-InfoSec |
+
+### Access Control
+- Departmental groups receive Change access at the SMB share level.
+- Departmental groups receive Modify permissions at the NTFS level.
+- Domain Admins and local Administrators receive Full Control.
+- NTFS inheritance is disabled on departmental folders.
+
+### Validation
+NTFS permissions, SMB share permissions, and share paths have been verified. Employee-level network access testing is pending setup of a domain-joined Windows client.
